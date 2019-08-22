@@ -1,0 +1,39 @@
+!dist/
+assets/
+test/
+scripts/
+config/local.json
+.arcconfig
+.editorconfig
+.stylelintrc
+stats.json
+*.DS_Store
+
+# webpack
+webpack.config.js
+
+# ts
+tsconfig.*
+tslint.json
+tsfmt.json
+
+# IDEs
+.vscode
+.idea
+
+#shell
+.qshell
+
+# pack files
+*.tgz
+.*.swp
+._*
+.git
+.hg
+.npmrc
+.lock-wscript
+.svn
+.wafpickle-*
+config.gypi
+CVS
+npm-debug.log

@@ -1,2 +1,0 @@
-# rxModel
-redux model

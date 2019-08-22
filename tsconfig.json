@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": false,
+    "allowJs": true,
+    "experimentalDecorators": true,
+    "jsx": "preserve",
+    "target": "es5",
+    "lib": ["dom", "es2016"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "removeComments": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    // "declaration": true,
+    // "declarationDir": "./types",
+    "paths": {
+      "*": [
+        "./types/*"
+      ],
+      "config/*": ["./config/*.json"],
+      "libs/*": ["./libs/*"],
+      "root": ["."],
+    },
+    "resolveJsonModule": true,
+  },
+  "files": [
+    "./types/index.d.ts"
+  ],
+  "include": [
+    "types",
+    "libs/**/*",
+    "config/**/*.json",
+    "src/**/*",
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "test",
+    "config/local.json"
+  ]
+}
