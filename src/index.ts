@@ -13,7 +13,7 @@ export const createModel = <U extends {[name:string]:{
       [p in keyof U]: U[p]['name'] extends k ? U[p]['reducer'] : never
     }[keyof U]
   }[key]>>>};
-  reducers:{[key in keyof U] : unknown extends U[key]['reducer'] ? never : U[key]['reducer']};
+  reducers:{[k in {[key in keyof U]:unknown extends U[key]['reducer'] ? never : key}[keyof U]]: U[k]['reducer']};
   keys:{[key in {[k in keyof U]:U[k]['name']}[keyof U]]:
   {[kk in keyof U]: U[kk]['name'] extends key ? kk : never}[keyof U]}[];
 } => {
@@ -42,6 +42,7 @@ export type ApiCallBack = {
 export interface Action<Payload = undefined> {
   readonly type:string;
   readonly payload?:Payload;
+  error?:boolean;
 }
 
 export function create_action(action_type:string) : () => Action;
