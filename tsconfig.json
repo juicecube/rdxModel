@@ -3,6 +3,7 @@
     "alwaysStrict": false,
     "allowJs": true,
     "experimentalDecorators": true,
+    "esModuleInterop": true,
     "jsx": "preserve",
     "target": "es5",
     "lib": ["dom", "es2016"],

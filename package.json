@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "tslint --project tsconfig.json",
     "dev": "webpack-dev-server --open --mode development",
-    "test": "tslint -c tslint.json -p tsconfig.json",
+    "test": "./node_modules/jest/bin/jest.js --color",
     "build": "npm run clean && npm run build:es5 -- --sourceMap && npm run build:es6 -- --sourceMap && npm run build:var",
     "build:var": "webpack --mode production",
     "build:es5": "tsc --outDir dist/es5",
@@ -38,15 +38,19 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.4.0",
     "@types/axios": "^0.14.0",
+    "@types/jest": "^24.0.18",
     "@types/node": "^11.13.5",
     "@types/uuid-js": "^0.7.2",
+    "@types/redux-actions": "^2.6.1",
     "body-parser": "^1.19.0",
     "clean-webpack-plugin": "^2.0.1",
     "colors": "^1.3.3",
     "generator-tsc-library": "^0.1.4",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^1.3.1",
+    "jest": "^24.9.0",
     "redux": "^4.0.4",
+    "ts-jest": "^24.0.2",
     "ts-loader": "^5.3.3",
     "tslint": "^5.19.0",
     "typescript": "^3.4.3",
@@ -56,8 +60,6 @@
     "yosay": "^2.0.2"
   },
   "dependencies": {
-    "@types/redux-actions": "^2.6.1",
-    "redux-actions": "^2.6.5",
-    "uuid-js": "^0.7.5"
+    "redux-actions": "^2.6.5"
   }
 }

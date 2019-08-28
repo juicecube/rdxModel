@@ -15,24 +15,24 @@ export const createModel = <T, U extends {[name:string]:{
   }[key]>>>};
   reducer:ReduxCompatibleReducer<T, T>;
   keys:{[key in {[k in keyof U]:U[k]['name']}[keyof U]]:
-  {[kk in keyof U]: U[kk]['name'] extends key ? kk : never}[keyof U]}[];
+  {[kk in keyof U]: U[kk]['name'] extends key ? kk : never}[keyof U]};
 } => {
   const _reducers = {} as any;
   const _actions = {} as any;
   const reducers = models.reducers;
   const keys = Object.keys(reducers) as any;
+  const _keys = {} as any;
   keys.map((item) => {
     _actions[reducers[item].name] = create_action(item);
-  });
-  keys.map((item) => {
-    if (models[item].reducer) {
+    _keys[reducers[item].name] = item;
+    if (reducers[item].reducer) {
       _reducers[item] = reducers[item].reducer;
     }
   });
   return {
     actions: _actions,
     reducer: handleActions(_reducers, models.state) as any,
-    keys,
+    keys: _keys,
   };
 };
 
