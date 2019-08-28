@@ -6,11 +6,11 @@
 ### 安装
 1.安装依赖
 ```
-yarn add rx-model
+yarn add rdx-model
 ```
 或者
 ```
-npm install rx-model
+npm install rdx-model
 ```
 
 ### 使用
