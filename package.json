@@ -1,5 +1,5 @@
 {
-  "name": "rx-model",
+  "name": "rdx-model",
   "version": "0.0.1",
   "description": "redux model",
   "main": "dist/es5/src/index.js",
