@@ -1,4 +1,4 @@
-# rx-model
+# rdx-model
   由于reducer和action写法很多重复的变量，此库整合了相关的写法以model形式输出。有成型的typescript声明文件，对于ts项目比较友好，内置了redux-actions。
   
   具体安装和引入步骤如下：
@@ -15,6 +15,7 @@ npm install rdx-model
 
 ### 使用
 ```
+import { createModel, Raw, Action } from 'rdx-model';
 // 生成reducer
 export type UserInfo = {
   id:number,
