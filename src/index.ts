@@ -1,36 +1,37 @@
-import { createAction } from 'redux-actions';
+import { createAction, ReduxCompatibleReducer, handleAction, handleActions } from 'redux-actions';
 
 export const Raw = <T extends string>(a:T) => a;
 export type FirstArgument<T> = T extends (arg1:infer U, ...args:any[]) => any ? U : any;
 export type SecondArgument<T> = T extends (arg1:any, arg2:infer U, ...args:any[]) => any ? U : any;
 type PickActionType<T extends Action<any>> = T extends Action<infer U> ? U : any;
-export const createModel = <U extends {[name:string]:{
+export const createModel = <T, U extends {[name:string]:{
   name:string;
-  reducer?:(state:any, action:Action<any>) => any;
-}}>(models:U) : {
+  reducer?:(state:T, action:Action<any>) => any;
+}}>(models:{state:T; reducers:U}) : {
   actions:{[key in {[k in keyof U]:U[k]['name']}[keyof U]]:CreateAction<PickActionType<SecondArgument<{
     [k in {[kk in keyof U]:U[kk]['name']}[keyof U]]:{
       [p in keyof U]: U[p]['name'] extends k ? U[p]['reducer'] : never
     }[keyof U]
   }[key]>>>};
-  reducers:{[k in {[key in keyof U]:unknown extends U[key]['reducer'] ? never : key}[keyof U]]: U[k]['reducer']};
+  reducer:ReduxCompatibleReducer<T, T>;
   keys:{[key in {[k in keyof U]:U[k]['name']}[keyof U]]:
   {[kk in keyof U]: U[kk]['name'] extends key ? kk : never}[keyof U]}[];
 } => {
   const _reducers = {} as any;
   const _actions = {} as any;
-  const keys = Object.keys(models) as any;
+  const reducers = models.reducers;
+  const keys = Object.keys(reducers) as any;
   keys.map((item) => {
-    _actions[models[item].name] = create_action(item);
+    _actions[reducers[item].name] = create_action(item);
   });
   keys.map((item) => {
     if (models[item].reducer) {
-      _reducers[item] = models[item].reducer;
+      _reducers[item] = reducers[item].reducer;
     }
   });
   return {
     actions: _actions,
-    reducers: _reducers,
+    reducer: handleActions(_reducers, models.state) as any,
     keys,
   };
 };
