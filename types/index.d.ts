@@ -1,4 +1,4 @@
-import { ReduxCompatibleReducer } from 'redux-actions';
+/// <reference types="redux-actions" />
 
 export declare const Raw:<T extends string>(a:T) => T;
 
@@ -25,7 +25,7 @@ export declare const createModel:<T, U extends {[name:string]:{
       [p in keyof U]: U[p]['name'] extends k ? U[p]['reducer'] : never
     }[keyof U]
   }[key]>>>};
-  reducer:ReduxCompatibleReducer<T, T>;
+  reducer:ReduxActions.ReduxCompatibleReducer<T, T>;
   keys:{[key in {[k in keyof U]:U[k]['name']}[keyof U]]:
   {[kk in keyof U]: U[kk]['name'] extends key ? kk : never}[keyof U]};
 };

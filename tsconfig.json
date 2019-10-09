@@ -12,29 +12,20 @@
     "removeComments": true,
     "outDir": "dist",
     "baseUrl": ".",
-    // "declaration": true,
-    // "declarationDir": "./types",
-    "paths": {
-      "*": [
-        "./types/*"
-      ],
-      "config/*": ["./config/*.json"],
-      "libs/*": ["./libs/*"],
-      "root": ["."],
-    },
-    "resolveJsonModule": true,
+    "resolveJsonModule": true
   },
   "files": [
-    "./types/index.d.ts"
+    "./types/index.d.ts",
+    "./node_modules/@types/redux-actions/index.d.ts"
   ],
   "include": [
     "types",
     "libs/**/*",
     "config/**/*.json",
-    "src/**/*",
+    "src/**/*"
   ],
   "exclude": [
-    "node_modules",
+    // "node_modules",
     "dist",
     "build",
     "test",
