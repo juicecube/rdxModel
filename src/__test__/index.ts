@@ -23,11 +23,21 @@ const numModel = createModel({
         return action.payload;
       },
     },
+    'num/autoAddOne': {
+      name: Raw('autoAddOne'),
+      action: (num:number) => +num + 1,
+      reducer: (state:number, action:Action<number>) => {
+        return state + action.payload;
+      },
+    },
     'num/nothing': {
       name: Raw('nothing'),
     },
   },
 });
+
+numModel.actions;
+
 const rootReducer = combineReducers({num: numModel.reducer});
 const store = createStore(rootReducer);
 
@@ -37,6 +47,7 @@ test('keys', () => {
     nothing: 'num/nothing',
     minus_num: 'num/minus',
     set_num: 'num/set',
+    autoAddOne: 'num/autoAddOne',
   });
 });
 
@@ -50,4 +61,10 @@ test('store minus', () => {
   store.dispatch(numModel.actions.set_num(0));
   store.dispatch(numModel.actions.minus_num(1));
   expect(store.getState().num).toBe(-1);
+});
+
+test('store payloadCreator', () => {
+  store.dispatch(numModel.actions.set_num(0));
+  store.dispatch(numModel.actions.autoAddOne(10));
+  expect(store.getState().num).toBe(11);
 });
