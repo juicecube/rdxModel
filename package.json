@@ -12,8 +12,8 @@
     "test": "./node_modules/jest/bin/jest.js --color",
     "build": "rollup -c",
     "clean": "rm -rf ./dist",
-    "prepush": "npm run lint && npm run build:es5 -q",
-    "prepack": "npm run lint && npm run build:prod -q",
+    "prepush": "npm run lint && npm run build -q",
+    "prepack": "npm run lint && npm run build -q",
     "start": "node scripts/server.js"
   },
   "repository": {
