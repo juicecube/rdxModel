@@ -2,7 +2,7 @@
   "name": "rdx-model",
   "version": "0.0.3",
   "description": "redux model",
-  "main": "dist/es5/src/index.js",
+  "main": "dist/umd/src/index.js",
   "types": "./types/index.d.ts",
   "module": "dist/es6/src/index.js",
   "scripts": {

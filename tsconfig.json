@@ -11,8 +11,8 @@
     "moduleResolution": "node",
     "removeComments": true,
     "outDir": "dist",
-    "baseUrl": ".",
-    "resolveJsonModule": true
+    "baseUrl": "."
+    // "resolveJsonModule": true
   },
   "files": [
     "./types/index.d.ts",
