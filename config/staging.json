@@ -1,8 +1,0 @@
-{
-  "env": "staging",
-  "api": "https://backend-test.codemao.cn",
-  "pid": "sysinfo_dev",
-  "time": "https://staging-time.codemao.cn",
-  "qiniuToken": "https://backend-test.codemao.cn/tiger/cdn/online-edu/token",
-  "aliyunToken": "https://backend-test.codemao.cn/tiger/ali-oss/online-edu/token"
-}

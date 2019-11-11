@@ -1,8 +1,0 @@
-{
-  "env": "dev",
-  "api": "https://backend-dev.codemao.cn",
-  "time": "https://dev-time.codemao.cn",
-  "pid": "sysinfo_dev",
-  "qiniuToken": "https://backend-dev.codemao.cn/tiger/cdn/online-edu/token",
-  "aliyunToken": "https://backend-dev.codemao.cn/tiger/ali-oss/online-edu/token"
-}
