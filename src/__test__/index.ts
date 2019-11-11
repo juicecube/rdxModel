@@ -37,6 +37,7 @@ const numModel = createModel({
 });
 
 numModel.actions;
+numModel.reducers;
 
 const rootReducer = combineReducers({num: numModel.reducer});
 const store = createStore(rootReducer);

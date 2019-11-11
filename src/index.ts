@@ -20,6 +20,7 @@ export const createModel = <T, U extends {[name:string]:{
     }[keyof U]
   }[key]>>>>};
   reducer:ReduxCompatibleReducer<T, T>;
+  reducers:{[k in keyof U]:U[k]['reducer']};
   keys:{[key in {[k in keyof U]:U[k]['name']}[keyof U]]:
   {[kk in keyof U]: U[kk]['name'] extends key ? kk : never}[keyof U]};
 } => {
@@ -38,6 +39,7 @@ export const createModel = <T, U extends {[name:string]:{
   return {
     actions: _actions,
     reducer: handleActions(_reducers, models.state) as any,
+    reducers: _reducers,
     keys: _keys,
   };
 };
