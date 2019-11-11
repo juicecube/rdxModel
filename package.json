@@ -1,6 +1,6 @@
 {
   "name": "rdx-model",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "redux model",
   "main": "dist/es5/src/index.js",
   "types": "./types/index.d.ts",
@@ -13,7 +13,8 @@
     "build:var": "webpack --mode production",
     "build:es5": "tsc -p . --outDir dist/es5",
     "build:es6": "tsc -p . -m es6 --outDir dist/es6",
-    "build:prod": "npm run clean && npm run build:es5 && npm run build:es6",
+    "build:umd": "tsc -p . -m UMD --outDir dist/umd",
+    "build:prod": "npm run clean && npm run build:es5 && npm run build:es6 && npm run build:umd",
     "watch:es5": "npm run build:es5 -- -w",
     "watch:es6": "npm run build:es6 -- -w",
     "clean": "rm -rf ./dist",
