@@ -1,3 +1,4 @@
+推荐使用[redux-toolkit](https://github.com/reduxjs/redux-toolkit)
 # rdx-model
   由于reducer和action写法很多重复的变量，此库整合了相关的写法以model形式输出。有成型的typescript声明文件，对于ts项目比较友好，内置了redux-actions。
   
